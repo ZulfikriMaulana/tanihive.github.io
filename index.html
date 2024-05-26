@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanihive</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon.png" type="image/png">
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <h1>Tanihive</h1>
+        </div>
+        <nav>
+            <a href="#products">Produk</a>
+            <a href="#testimonials">Testimoni</a>
+            <a href="#contact">Kontak</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <img src="9dc90ed4-471e-4a67-a1b0-65294aa6910c.jpg.webp" alt="Deskripsi Gambar">
+    </section>
+
+
+    <div class="container">
+        <section id="products" class="products">
+            <h2>Produk Kami</h2>
+            <div class="products-grid">
+                <div class="product" onclick="openModal('sayur1')">
+                    <img src="sayur1.jpg" alt="Sayur 1">
+                    <h3>Sayur A</h3>
+                    <p>Deskripsi singkat tentang Sayur A.</p>
+                </div>
+                <div class="product" onclick="openModal('sayur2')">
+                    <img src="sayur2.jpg" alt="Sayur 2">
+                    <h3>Sayur B</h3>
+                    <p>Deskripsi singkat tentang Sayur B.</p>
+                </div>
+                <div class="product" onclick="openModal('sayur3')">
+                    <img src="sayur3.jpg" alt="Sayur 3">
+                    <h3>Sayur C</h3>
+                    <p>Deskripsi singkat tentang Sayur C.</p>
+                </div>
+                <div class="product" onclick="openModal('sayur4')">
+                    <img src="sayur3.jpg" alt="Sayur 3">
+                    <h3>Sayur C</h3>
+                    <p>Deskripsi singkat tentang Sayur C.</p>
+                </div>
+                <div class="product" onclick="openModal('sayur5')">
+                    <img src="sayur3.jpg" alt="Sayur 3">
+                    <h3>Sayur C</h3>
+                    <p>Deskripsi singkat tentang Sayur C.</p>
+                </div>
+                <div class="product" onclick="openModal('sayur6')">
+                    <img src="sayur3.jpg" alt="Sayur 3">
+                    <h3>Sayur C</h3>
+                    <p>Deskripsi singkat tentang Sayur C.</p>
+                </div>
+                <div class="product" onclick="openModal('sayur7')">
+                    <img src="sayur3.jpg" alt="Sayur 3">
+                    <h3>Sayur C</h3>
+                    <p>Deskripsi singkat tentang Sayur C.</p>
+                </div>
+                <div class="product" onclick="openModal('sayur3')">
+                    <img src="sayur3.jpg" alt="Sayur 3">
+                    <h3>Sayur C</h3>
+                    <p>Deskripsi singkat tentang Sayur C.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <h2>Testimoni Pelanggan</h2>
+            <div class="testimonial">
+                <p>"Sayur segar dan berkualitas, sangat puas dengan pelayanannya!" - Pelanggan A</p>
+            </div>
+            <div class="testimonial">
+                <p>"Pengiriman cepat dan sayur-sayurannya sangat segar." - Pelanggan B</p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Kontak Kami</h2>
+            <form onsubmit="return validateForm()">
+                <div>
+                    <label for="name">Nama</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Pesan</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit">Kirim</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Penjualan Sayur Segar</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Detail Produk</h2>
+            <p id="modal-description">Deskripsi lengkap tentang produk.</p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(productId) {
+            var modal = document.getElementById("myModal");
+            var title = document.getElementById("modal-title");
+            var description = document.getElementById("modal-description");
+
+            if (productId === 'sayur1') {
+                title.textContent = 'Sayur A';
+                description.textContent = 'Deskripsi lengkap tentang Sayur A.';
+            } else if (productId === 'sayur2') {
+                title.textContent = 'Sayur B';
+                description.textContent = 'Deskripsi lengkap tentang Sayur B.';
+            } else if (productId === 'sayur3') {
+                title.textContent = 'Sayur C';
+                description.textContent = 'Deskripsi lengkap tentang Sayur C.';
+            }
+
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            var modal = document.getElementById("myModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+
+            if (name === "" || email === "" || message === "") {
+                alert("Semua field harus diisi!");
+                return false;
+            } else {
+                alert("Pesan Anda berhasil dikirim!");
+                return true;
+            }
+        }
+
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
